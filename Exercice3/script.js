@@ -7,22 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let todos = [];
 
-    // Fonction pour afficher les tâches
+    // fonction pour afficher les taches
     function displayTodos() {
         todoList.innerHTML = ''; 
 
         todos.forEach((todo, index) => {
             const todoItem = document.createElement('div');
             todoItem.classList.add('todo-item');
-            todoItem.innerHTML = `
-                <strong>${todo.name}</strong>: ${todo.content}
-                <i onclick="deleteTodo(${index})" style="cursor: pointer; margin-left: 10px;">🗑️</i>
-            `;
+            todoItem.innerHTML = `${todo.name}: ${todo.content}<i onclick="deleteTodo(${index})" style="cursor: pointer; margin-left: 10px;">🗑️</i>`;
             todoList.appendChild(todoItem);
         });
     }
 
-    // Fonction pour ajouter une tâche
+    // fonction pour ajouter une tache
     function addTodo() {
         const name = nomInput.value.trim();
         const content = contenuInput.value.trim();
@@ -39,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         displayTodos();
     }
 
-    // Fonction pour supprimer une tâche
+    // fonction pour supprimer une tache
     window.deleteTodo = function (index) {
-        todos.splice(index, 1); // Supprimer la tâche du tableau
-        displayTodos(); // Mettre à jour l'affichage
+        todos.splice(index, 1); 
+        displayTodos(); 
     };
 
-    // Événement pour ajouter une tâche
+    //ajouter une tache revient a cliquer sur le bouton
     addTodoBtn.addEventListener('click', addTodo);
 });

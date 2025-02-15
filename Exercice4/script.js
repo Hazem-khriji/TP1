@@ -1,20 +1,23 @@
-function gen_random(){
+//fonction pour generer un nombre aleatoire entre 1 et 255 (ce nombre sera un indice RGB)
+function genRandom(){
     return Math.floor(Math.random() * 255);
 }
-function change_color(item){
-    let x=gen_random();
-    let y=gen_random();
-    let z=gen_random();
+//fonction pour changer la couleur
+function changeColor(item){
+    let x=genRandom();
+    let y=genRandom();
+    let z=genRandom();
     item.style.color=`rgb(${x},${y},${z})`
 }
-function apply_changes(){
+//our main function
+function applyChanges(){
     document.addEventListener("DOMContentLoaded", ()=>{
         items=document.querySelectorAll("ol li");
         items.forEach(item => {
             item.addEventListener("click", ()=>{
-                change_color(item);
+                changeColor(item);
             });
         });
     });
 }
-apply_changes();
+applyChanges();
